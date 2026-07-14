@@ -1,0 +1,71 @@
+{
+  "default_policy": "DENY",
+  "rules": [
+    {
+      "rule_id": "R1",
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "src_ip": "any",
+      "dst_ip": "192.168.1.100",
+      "src_port": "any",
+      "dst_port": "80",
+      "priority": 10,
+      "description": "Allow HTTP traffic to web server"
+    },
+    {
+      "rule_id": "R2",
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "src_ip": "any",
+      "dst_ip": "192.168.1.100",
+      "src_port": "any",
+      "dst_port": "443",
+      "priority": 10,
+      "description": "Allow HTTPS traffic to web server"
+    },
+    {
+      "rule_id": "R3",
+      "action": "ALLOW",
+      "protocol": "TCP",
+      "src_ip": "192.168.1.0/24",
+      "dst_ip": "192.168.1.100",
+      "src_port": "any",
+      "dst_port": "22",
+      "priority": 20,
+      "description": "Allow SSH only from internal LAN"
+    },
+    {
+      "rule_id": "R4",
+      "action": "DENY",
+      "protocol": "ANY",
+      "src_ip": "203.0.113.5",
+      "dst_ip": "any",
+      "src_port": "any",
+      "dst_port": "any",
+      "priority": 5,
+      "description": "Block known malicious IP"
+    },
+    {
+      "rule_id": "R5",
+      "action": "DENY",
+      "protocol": "TCP",
+      "src_ip": "any",
+      "dst_ip": "any",
+      "src_port": "any",
+      "dst_port": "23",
+      "priority": 15,
+      "description": "Block Telnet (insecure protocol)"
+    },
+    {
+      "rule_id": "R6",
+      "action": "DENY",
+      "protocol": "TCP",
+      "src_ip": "any",
+      "dst_ip": "any",
+      "src_port": "any",
+      "dst_port": "3389",
+      "priority": 15,
+      "description": "Block external RDP access"
+    }
+  ]
+}
